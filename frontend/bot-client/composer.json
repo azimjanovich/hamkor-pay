@@ -1,0 +1,44 @@
+{
+    "name": "sysgram/sysgram",
+    "type": "project",
+    "description": "The System Telegram bot Framework.",
+    "keywords": [
+        "php",
+        "framework",
+        "telegram",
+        "bot"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "nesbot/carbon": "^2.66",
+        "usmanhalalit/pixie": "2.*@dev",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-install-cmd": [
+            "@copy-env"
+        ],
+        "copy-env": [
+            "cp .env.example .env"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
